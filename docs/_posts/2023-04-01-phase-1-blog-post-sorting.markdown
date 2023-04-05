@@ -4,7 +4,6 @@ title:  "Phase 1 Blog Post: Tips and tricks for sorting arrays"
 date:   2023-04-01 18:47:10 -0700
 categories: jekyll update
 ---
-# Phase 1 Blog Post: Tips and tricks for sorting arrays
 
 ## Overview
 
