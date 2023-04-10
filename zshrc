@@ -1,27 +1,32 @@
-#Open zshrc quickly
 z(){
+#Open zshrc quickly
   code ~/.zshrc
 }
 
-#Source zshrc quickly
 zs(){
+#Source zshrc quickly
   source ~/.zshrc
   echo 'Updated ~/.zshrc'
 }
 
-#Backup zshrc quickly
 zsb(){
+#Backup zshrc quickly
   current_dir=${PWD} #Get current directory
   cd /Users/matthewrendely/code/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git add zshrc
-  git commit -m "update zshrc"
+  git commit -m "Auto update zshrc"
   git push
   cd $current_dir
 }
 
+zsa(){
+#Prints all the zshrc functions and a description
+grep -A 1 -E '\(\)\{' ~/.zshrc
+}
+
+fastclone(){
 #Clone repo, cd into it, install it and open in VScode
-fastclone() {
   repo="$1"
   slug=$(echo "$repo" | sed 's|.*/||; s/\.git$//;')
   echo "repo: $repo"
@@ -42,8 +47,8 @@ fastclone() {
   fi
 }
 
-# Quickly create a new react component file
-component() {
+component(){
+#Quickly create a new react component file
   component="$1"  # The component is the first argument to the function
   current_dir=${PWD##*/} #Get current directory
   if [ "$current_dir" != "components" ]; then  # Check if we're already in the components directory
@@ -71,8 +76,8 @@ END_TEXT
   fi
 }
 
-# Quickly cd into folder based on partial keyword match 
-cdg() {
+cdg(){
+#Quickly cd into folder based on partial keyword match 
   numResults=($(ls | grep $1 | wc -l))
   if [[ $numResults[1] = 1 ]]; then
     cd `ls | grep $1`
@@ -82,8 +87,8 @@ cdg() {
 
 }
 
-# Add bail to the npm test for Flatiron code
-bail() {
+bail(){
+#Add bail to the npm test for Flatiron code
   sed -i '' 's/results.json"/results.json --bail"/g' package.json
 }
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
