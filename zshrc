@@ -11,7 +11,7 @@ zs(){
 
 #Backup zshrc quickly
 zsb(){
-  current_dir=${PWD##*/} #Get current directory
+  current_dir=${PWD} #Get current directory
   cd /Users/matthewrendely/code/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git add zshrc
