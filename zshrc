@@ -12,7 +12,7 @@ zs(){
 zsb(){
 #Backup zshrc quickly
   current_dir=${PWD} #Get current directory
-  cd /Users/matthewrendely/code/github-rendely/rendely.github.io
+  cd ~/code/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git add zshrc
   git commit -m "Auto update zshrc"
@@ -22,7 +22,8 @@ zsb(){
 
 zsa(){
 #Prints all the zshrc functions and a description
-grep -A 1 -E '\(\)\{' ~/.zshrc
+# grep -A 1 -E '\(\)\{' ~/.zshrc
+grep -oE '\w+\(\)' ~/.zshrc 
 }
 
 fastclone(){
@@ -97,7 +98,7 @@ chruby ruby-3.1.3
 
 
 #Fix python paths
-path+=('/Users/matthewrendely/Library/Python/3.8/bin')
+path+=('~/Library/Python/3.8/bin')
 if which pyenv > /dev/null; then
      eval "$(pyenv init - )";
      export PIPENV_VENV_IN_PROJECT=1
