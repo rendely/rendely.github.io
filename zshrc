@@ -15,7 +15,7 @@ zsb(){
   cd ~/code/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git add zshrc
-  git commit -m "Auto update zshrc"
+  git commit -m "Auto update zshrc: $*"
   git push
   cd $current_dir
 }
