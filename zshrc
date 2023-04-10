@@ -26,13 +26,20 @@ fastclone() {
     npm install
     echo "open VS code"
     code .
+    echo "open component files"
+    code src/components/*
   fi
 }
 
 # Quickly create a new react component file
-nrc() {
+component() {
   component="$1"  # The component is the first argument to the function
-  
+  current_dir=${PWD##*/} #Get current directory
+  if [ "$current_dir" != "components" ]; then  # Check if we're already in the components directory
+    echo "Please navigate to the 'components' directory first."
+    return
+  fi
+
   if [ -e "$component.js" ]; then  # Check if the file exists
     echo "$component.js already exists."  # If it does, print a message saying so
   else
@@ -49,7 +56,7 @@ export default $component
 END_TEXT
     echo "Created $component.js and copied import statement to clipboard"
     echo "import $component from './$component';" | pbcopy
-    code "$component.js"
+    code -r "$component.js"
   fi
 }
 
