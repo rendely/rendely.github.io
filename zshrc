@@ -11,11 +11,13 @@ zs(){
 
 #Backup zshrc quickly
 zsb(){
+  current_dir=${PWD##*/} #Get current directory
   cd /Users/matthewrendely/code/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git add zshrc
   git commit -m "update zshrc"
   git push
+  cd $current_dir
 }
 
 #Clone repo, cd into it, install it and open in VScode
