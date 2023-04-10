@@ -9,6 +9,15 @@ zs(){
   echo 'Updated ~/.zshrc'
 }
 
+#Backup zshrc quickly
+zsb(){
+  cd /Users/matthewrendely/code/github-rendely/rendely.github.io
+  cat ~/.zshrc > zshrc
+  git add zshrc
+  git commit -m "update zshrc"
+  git push
+}
+
 #Clone repo, cd into it, install it and open in VScode
 fastclone() {
   repo="$1"
