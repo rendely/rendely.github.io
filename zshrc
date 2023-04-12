@@ -4,13 +4,13 @@ z(){
 }
 
 zs(){
-#Source zshrc quickly
+#Source zshrc quickly and print diff
   source ~/.zshrc
   echo 'Updated ~/.zshrc'
   current_dir=${PWD} #Get current directory
   cd ~/code/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
-  git diff zshrc #test adding comment
+  git diff zshrc
   git add zshrc
   cd $current_dir
 
