@@ -7,6 +7,13 @@ zs(){
 #Source zshrc quickly
   source ~/.zshrc
   echo 'Updated ~/.zshrc'
+  current_dir=${PWD} #Get current directory
+  cd ~/code/github-rendely/rendely.github.io
+  cat ~/.zshrc > zshrc
+  git diff zshrc #test adding comment
+  git add zshrc
+  cd $current_dir
+
 }
 
 zsb(){
