@@ -103,6 +103,11 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
 
+kzsh(){
+#kill all zsh processes, useful for vscode cleanup
+kill -9 $(pgrep zsh)
+}
+
 
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
