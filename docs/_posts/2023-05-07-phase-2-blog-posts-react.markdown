@@ -13,7 +13,7 @@ In this blog post we'll go over some of my learnings from my first React project
 
 My first React project is a Study Card app. Users can manage multiple collections of study cards, and enter a review mode to test their knowledge and practice.
 
-![Study Card App Screenshot](/assets/img/card_edit.png)
+![Study Card App Screenshot]({{ "/assets/img/card_edit.png" | relative_url }})
 
 ## Tip 1: How to use Semantic UI
 
