@@ -19,5 +19,82 @@ I wanted to practice using a package of standard UI components so I could build 
 
 ## Tip 2: Editable study cards
 
+
+
 ## Tip 3: Keyboard shortcuts
 
+In the study card app, a user might be reviewing hundreds of cards in one sitting. Instead of the user needing to click around hundreds of times we can improve the user interface with keyboard shortcuts. I decided to use the down arrow key to reveal the answer, as this mirrored the UI of the answer appearing below the question. I also decided that the left and right arrows could mark the answer as known or unknown. With these keyboard shortcuts users can effortlessly go through dozens or even hundreds of cards very quickly.
+
+I first wrote the function which would handle the `keydown` event. Calling the corresponding function and arguments for the three keypress options.
+
+```javascript
+function handleKeyDown(e) {
+  if (e.code === 'ArrowDown') setShowAnswer(true)
+  else if (e.code === 'ArrowRight') handleResult(true)
+  else if (e.code === 'ArrowLeft') handleResult(false)
+};
+```  
+
+Then, I decided to use the `useEffect` hook to perform the side effect of direclty updating the DOM by adding an event listener the first time the component is mounted.
+
+```javascript
+useEffect(() => {
+  document.addEventListener('keydown', handleKeyDown)}, []);
+```
+
+However, this led to a bug where the review got stuck showing the second card over and over. That's because the event listener function `handleResult` was still operating on the first `card` prop that was being passed to the component. To add a new eventListener each time the `card` prop was updated I added it as a depedency.
+
+```javascript
+useEffect(() => {
+  document.addEventListener('keydown', handleKeyDown)}, [card]);
+```
+
+Now I had a new bug, where after reviewing a card it would skip forward several cards at a time, skipping more and more cards in each subsequent step. That's because I wasn't cleaning up the first event listener, so they were stacking up. To fix this I added a return function at the end for effect cleanup.
+
+```javascript
+useEffect(() => {
+  document.addEventListener('keydown', handleKeyDown);
+  return (() => document.removeEventListener('keydown', handleKeyDown));
+  }, [card]);
+```
+
+And with that it was working perfectly!
+
+## Tip 4: Make new component files quickly
+
+It can be tedious to create a new component file, add the boilerpolate React code, and write the boilerplate import code. Especially if you're creating a lot of new components for a project.
+
+One way to speed this up is to automate some of the steps in bash by creating a bash function. Depending on your OS, you can add this to a ~/.bashrc file or ~/.zshrc file.
+
+The example bash function below creates the component file and copies the import statement to your clipboard. Any time you want to create a new component you simply navigate to the components folder and type `component MyNewComponent`.
+
+```bash
+component(){
+#Quickly create a new react component file
+  component="$1"  # The component is the first argument to the function
+  current_dir=${PWD##*/} #Get current directory
+  if [ "$current_dir" != "components" ]; then  # Check if we're already in the components directory
+    echo "Please navigate to the 'components' directory first."
+    return
+  fi
+
+  if [ -e "$component.js" ]; then  # Check if the file exists
+    echo "$component.js already exists."  # If it does, print a message saying so
+  else
+    touch "$component.js"  # If it doesn't, create the file
+    cat <<END_TEXT > "$component.js"  # Add the text to the file
+import React from 'react'
+
+function $component(){
+  return ()
+}
+
+export default $component
+
+END_TEXT
+    echo "Created $component.js and copied import statement to clipboard"
+    echo "import $component from './$component';" | pbcopy
+    code -r "$component.js"
+  fi
+}
+```
