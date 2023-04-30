@@ -11,11 +11,19 @@ In this blog post we'll go over some of my learnings from my first React project
 
 ## About my first React Project
 
-My first React project is an app to create, manage and review study cards.
+My first React project is a Study Card app. Users can manage multiple collections of study cards, and enter a review mode to test their knowledge and practice.
+
+![Study Card App Screenshot](img/card_edit.png)
 
 ## Tip 1: How to use Semantic UI
 
-I wanted to practice using a package of standard UI components so I could build a more usable and visually appealing app. I decided on [Semantic UI for React](https://react.semantic-ui.com/). 
+I wanted to practice using a package of standard UI components so I could build a more usable and visually appealing app. I decided on [Semantic UI for React](https://react.semantic-ui.com/).
+
+To get started I'd recommend exploring the [Layout Examples](https://react.semantic-ui.com/layouts) page, which show a lot of components and how they can be used together.
+
+After that you can browse the page's left side nav menu or use the search to find specific components you think you'll want to use. In my case I found a [Card component](https://react.semantic-ui.com/views/card/) I could use for the study cards.
+
+In addition to the numerous examples you can find scrolling the page, I recommend toggling to `Props` at the top of the page to see the spec describing all the props for that Component. 
 
 ## Tip 2: Editable study cards
 
@@ -35,14 +43,14 @@ function handleKeyDown(e) {
 };
 ```  
 
-Then, I decided to use the `useEffect` hook to perform the side effect of direclty updating the DOM by adding an event listener the first time the component is mounted.
+Then, I decided to use the `useEffect` hook to perform the side effect of directly updating the DOM by adding an event listener the first time the component is mounted.
 
 ```javascript
 useEffect(() => {
   document.addEventListener('keydown', handleKeyDown)}, []);
 ```
 
-However, this led to a bug where the review got stuck showing the second card over and over. That's because the event listener function `handleResult` was still operating on the first `card` prop that was being passed to the component. To add a new eventListener each time the `card` prop was updated I added it as a depedency.
+However, this led to a bug where the review got stuck showing the second card and trying to send update fetch requests on the initial card, over and over. That's because the event listener function `handleResult` was still operating on the first `card` prop that was being passed to the component. To add a new eventListener each time the `card` prop was updated I added it as a depedency.
 
 ```javascript
 useEffect(() => {
