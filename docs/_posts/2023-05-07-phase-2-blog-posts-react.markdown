@@ -7,7 +7,7 @@ categories: jekyll update
 
 ## Overview
 
-In this blog post we'll go over some of my learnings from my first React project that will be helpful for beginners. Going just beyond what is covered in beginner tutorials with some practical examples.  
+In this blog post we'll go over some of my learnings from my first React project that could be helpful for beginners. These are practical examples of the types of challenges needed to build a functioning app.
 
 ## About my first React Project
 
@@ -21,13 +21,23 @@ I wanted to practice using a package of standard UI components so I could build 
 
 To get started I'd recommend exploring the [Layout Examples](https://react.semantic-ui.com/layouts) page, which show a lot of components and how they can be used together.
 
-After that you can browse the page's left side nav menu or use the search to find specific components you think you'll want to use. In my case I found a [Card component](https://react.semantic-ui.com/views/card/) I could use for the study cards.
+After that you can browse the page's left side nav menu or use the search to find specific components you think you'll want to use. In my case I found a [Card component](https://react.semantic-ui.com/views/card/) I could use for the study cards as well as the [Form component](https://react.semantic-ui.com/collections/form/) used for adding and editing cards.
 
-In addition to the numerous examples you can find scrolling the page, I recommend toggling to `Props` at the top of the page to see the spec describing all the props for that Component. 
+In addition to the numerous examples you can find scrolling the detail page of each component, I recommend toggling to `Props` at the top of the page to see the spec describing all the props for that component.
 
 ## Tip 2: Editable study cards
 
+Once a user has already created cards, I also wanted them to be easy to edit later. At first I built it so that editing would navigate to an edit page, but I realized it was jarring as a user to go back and forth between those two views. I decided instead to let users edit the card direclty in place for better usability.
 
+To do this, each card has state to track if it's being edited or not. And if it is I render a form version of the card. What's great about this approach is the `CardForm` component is the same one I used for letting users add a new card, so it serves a dual purpose.
+
+```javascript
+ if (isBeingEdited) return <CardForm question={card.question} answer={card.answer} onSubmitCard={handleEdit}/>
+  else return (
+    <Card>
+     ... JSX for regular card goes here ...
+    </Card>
+```
 
 ## Tip 3: Keyboard shortcuts
 
