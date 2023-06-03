@@ -77,6 +77,7 @@ useEffect(() => {
 ```
 
 And with that it was working perfectly! Except that I later learned using eventListener like this is a big mistake in React for two reasons:
+
  1. We already have access to the eventListener through the JSX itself, so it's redundant
  2. We are directly modifying the DOM, when React actually wants to use a virtual DOM instead.
 
