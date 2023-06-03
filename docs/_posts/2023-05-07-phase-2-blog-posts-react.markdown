@@ -53,7 +53,7 @@ function handleKeyDown(e) {
 };
 ```  
 
-Then, I decided to use the `useEffect` hook to perform the side effect of directly updating the DOM by adding an event listener the first time the component is mounted.
+Then, I decided to use the `useEffect` hook to perform the side effect of directly updating the DOM by adding an event listener the first time the component is mounted. (Using eventListener here is a mistake in React, which I will explain shortly)
 
 ```javascript
 useEffect(() => {
@@ -76,7 +76,22 @@ useEffect(() => {
   }, [card]);
 ```
 
-And with that it was working perfectly!
+And with that it was working perfectly! Except that I later learned using eventListener like this is a big mistake in React for two reasons:
+ 1. We already have access to the eventListener through the JSX itself, so it's redundant
+ 2. We are directly modifying the DOM, when React actually wants to use a virtual DOM instead.
+
+So how do we fix this to work the React way? We use the onKeyDown event handler and wrap our component in a focusable div by using tabIndex. With useRef and useEffect we can autofocus this element when the component mounts.
+
+```javascript
+const cardRef = useRef(null); 
+useEffect(() => {cardRef.current.focus();},[]);
+
+...ommitted code...
+
+<div onKeyDown={handleKeyDown} tabIndex={0} ref={cardRef}>
+...rest of component here...
+</div>
+```
 
 ## Tip 4: Make new component files quickly
 
