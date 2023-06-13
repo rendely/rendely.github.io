@@ -46,8 +46,13 @@ fastclone(){
     git clone $repo
     echo "cd into $slug"
     cd $slug
-    echo "npm installing"
-    npm install
+    echo "installing"
+    if [ -f "Pipfile" ]; then
+      pipenv install
+    fi
+    if [ -f "package.json" ]; then
+      npm install
+    fi
     echo "open VS code"
     code .
     echo "open component files"
