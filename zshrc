@@ -113,6 +113,8 @@ kzsh(){
 kill -9 $(pgrep zsh)
 }
 
+alias wifi-scan='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s'
+
 
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
