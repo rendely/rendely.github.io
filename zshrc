@@ -114,7 +114,7 @@ kill -9 $(pgrep zsh)
 }
 
 alias wifi-scan='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s'
-
+alias chat='cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py'
 
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
