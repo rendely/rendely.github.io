@@ -29,8 +29,7 @@ zsb(){
 
 zsa(){
 #Prints all the zshrc functions and a description
-# grep -A 1 -E '\(\)\{' ~/.zshrc
-grep -oE '\w+\(\)' ~/.zshrc 
+grep -E -A1 '\w+\(\)\{' ~/.zshrc | awk 'NR%2==1 {print $0; getline; print $0}'
 }
 
 fastclone(){
@@ -113,8 +112,17 @@ kzsh(){
 kill -9 $(pgrep zsh)
 }
 
-alias wifi-scan='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s'
-alias chat='cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py'
+wifi(){
+#Scan wifi networks and sort 
+/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s 
+}
+
+chat(){
+#Run chat-GPT in CLI
+cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py  
+}
+
+# alias chat='cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py'
 
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
