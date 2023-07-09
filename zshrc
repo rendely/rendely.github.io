@@ -126,6 +126,7 @@ tojpeg(){
 #Convert all images to jpeg 
 mkdir jpeg_output
 sips -s format jpeg *.* --out jpeg_output
+open jpeg_output
 }
 
 #Fix python paths
