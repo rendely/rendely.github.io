@@ -122,7 +122,7 @@ chat(){
 cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py  
 }
 
-tojpg(){
+tojpeg(){
 #Convert all images to jpeg 
 mkdir jpeg_output
 sips -s format jpeg *.* --out jpeg_output
