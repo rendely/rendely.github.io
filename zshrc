@@ -122,7 +122,11 @@ chat(){
 cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py  
 }
 
-# alias chat='cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py'
+tojpg(){
+#Convert all images to jpeg 
+mkdir jpeg_output
+sips -s format jpeg *.* --out jpeg_output
+}
 
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
