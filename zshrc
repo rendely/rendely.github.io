@@ -129,6 +129,12 @@ sips -s format jpeg *.* --out jpeg_output
 open jpeg_output
 }
 
+minimal(){
+#Minimal terminal prompt
+export PS1="$ "
+clear
+}
+
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
 if which pyenv > /dev/null; then
