@@ -2,7 +2,7 @@
 layout: post
 title:  "Phase 2 Blog Post: React Beginner Tips"
 date:   2023-04-28 18:47:10 -0700
-categories: jekyll update
+categories: flatiron
 ---
 
 ## Overview
