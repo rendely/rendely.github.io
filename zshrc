@@ -107,9 +107,10 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
 
-kzsh(){
-#kill all zsh processes, useful for vscode cleanup
+kz(){
+#kill all node and zsh processes, useful for vscode cleanup
 kill -9 $(pgrep zsh)
+kill -9 $(pgrep node)
 }
 
 wifi(){
@@ -137,7 +138,12 @@ clear
 
 study(){
 #Opens the study cards app
-(cd ~/Flatiron/code/phase-2/phase-2-project-study-cards && npm start server && npm run)
+   (
+        cd ~/Flatiron/code/phase-2/phase-2-project-study-cards &&
+        npm run server > /dev/null 2>&1 &
+        npm start > /dev/null 2>&1 &
+    )
+    open http://localhost:3000/collections
 }
 
 #Fix python paths
