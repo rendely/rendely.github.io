@@ -135,6 +135,11 @@ export PS1="$ "
 clear
 }
 
+study(){
+#Opens the study cards app
+(cd ~/Flatiron/code/phase-2/phase-2-project-study-cards && npm start server && npm run)
+}
+
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
 if which pyenv > /dev/null; then
