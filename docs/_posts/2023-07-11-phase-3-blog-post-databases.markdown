@@ -37,7 +37,7 @@ While Python has many strengths, there are always tradeoffs that might lead you 
 
 There is a great [quickstart tutorial](https://docs.sqlalchemy.org/en/20/orm/quickstart.html) on the SQLAlchemy site. To give a quick preview of what the final working code can look like, here are some snippets from a final working project:
 
-This Python code defines a User object that can have a name attribute and a trips attribute. It inherits the Base class from SQLAlchemy which will do the magic of creating a corresponding table in the database.
+This Python code defines a User object that can have a name attribute and a trips attribute. It also defines the Trip object with name, year and users attributes. Both of these inherit the Base class from SQLAlchemy which will do the magic of creating a corresponding table in the database.
 
 ```python
 class User(Base):
@@ -46,13 +46,22 @@ class User(Base):
     id = Column(Integer(), primary_key=True)
     name = Column(String())
     trips = relationship('Trip', secondary=user_trip, back_populates='users')
+
+class Trip(Base):
+    __tablename__ = 'trips'
+
+    id = Column(Integer(), primary_key=True)
+    name = Column(String())
+    year = Column(Integer())
+    users = relationship('User', secondary=user_trip, back_populates='trips')
 ```
 
 Creating and interacting with User objects starts to look just like traditional Python syntax, with one small addition of a [Session object](https://docs.sqlalchemy.org/en/20/orm/session_basics.html) to allow for committing to the database. Here is an example of creating a new User and adding a Trip to their trips attribute.
 
 ```python
 new_user = User(name='Albert')
-new_user.trips.append(new Trip()) # note: new_trip defined elsewhere
+new_trip = Trip(name='Europe', year='2023')
+new_user.trips.append(new_trip) 
 session.commit()
 ```
 
