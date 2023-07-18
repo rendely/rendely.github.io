@@ -99,4 +99,4 @@ You'll now have the new table you defined created in the database. Rinse and rep
 
 ## Conclusion
 
-In conclusion, we used Python for its ease-of-use and robust ecosystem support. SQLAlchemy enabled use to write more classic Python object code and have that mirrored in the database of our choosing. Alembic made it simple to update our data models overtime in Python and keep our databases in sync.
+In conclusion, we used Python for its ease-of-use and robust ecosystem support. SQLAlchemy enabled us to write more classic Python object code and have that mirrored in the database of our choosing. Alembic made it simple to update our data models overtime in Python and keep our databases in sync.
