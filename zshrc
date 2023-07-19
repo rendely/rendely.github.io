@@ -138,12 +138,11 @@ clear
 
 study(){
 #Opens the study cards app
-   (
-        cd ~/Flatiron/code/phase-2/phase-2-project-study-cards &&
-        npm run server > /dev/null 2>&1 &
-        npm start > /dev/null 2>&1 &
-    )
-    open http://localhost:3000/collections
+cd ~/Flatiron/code/phase-2/phase-2-project-study-cards &&
+npm run server > /dev/null 2>&1 &
+npm start > /dev/null 2>&1 &
+
+open http://localhost:3000/collections
 }
 
 #Fix python paths
