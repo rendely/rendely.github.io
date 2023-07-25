@@ -145,6 +145,15 @@ npm start > /dev/null 2>&1 &
 open http://localhost:3000/collections
 }
 
+watchrun(){
+#Watch current directory and run command when file is saved
+while fswatch -1 "."; do
+    clear
+    eval $*
+done
+
+}
+
 #Fix python paths
 path+=('~/Library/Python/3.8/bin')
 if which pyenv > /dev/null; then
