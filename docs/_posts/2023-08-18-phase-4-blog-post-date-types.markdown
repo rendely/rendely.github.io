@@ -21,7 +21,7 @@ Here's how you create a Date column in SQLAlchemy.
 date = db.Column(db.Date)
 ```
 
-This is equivalent to Python's [datetime.date()](https://docs.python.org/3/library/datetime.html#date-objects) object according to the [SQLAchemy type basics](https://docs.sqlalchemy.org/en/20/core/type_basics.html#sqlalchemy.types.Date:~:text=sqlalchemy.types.Date-,A%20type%20for%20datetime.date()%20objects.,-Members).
+This is equivalent to Python's [datetime.date()](https://docs.python.org/3/library/datetime.html#date-objects) object according to the [SQLAlchemy type basics](https://docs.sqlalchemy.org/en/20/core/type_basics.html#sqlalchemy.types.Date:~:text=sqlalchemy.types.Date-,A%20type%20for%20datetime.date()%20objects.,-Members).
 
 One thing to note is that sqlite [_technically_](https://www.sqlite.org/draft/datatype3.html) doesn't have a Date type, so it instead either stores it as text, real or an integer.
 
