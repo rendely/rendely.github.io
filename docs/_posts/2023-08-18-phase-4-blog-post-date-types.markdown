@@ -90,37 +90,70 @@ Those are the basics for using date in Python, but there is a lot more to learn 
 
 ## Date type in React / Javascript
 
-Let's switch gears now to the [Date built-in object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) in Javascript.
+Let's switch gears now to the [Date built-in object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) in Javascript. Unlike Python, Javascript Date objects are stored as time in milliseconds since the epoch, which is timezone agnostic.
+
+I needed to do several things on the frontend with dates, so let's break it down into steps and show the code for each.
+
+1. Figure out the first day and date of this week
+2. Create an array of all seven days in this week starting on Monday
+3. Convert those dates to something human readable
+
+To figure out the first day of the week we take a similar approach as we did in Python by using a method to get the day of the week, in this case [getDay()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay) with Sunday == 0.
 
 ```javascript
-function getWeekDates() {
-  const today = new Date();
-  const currentDay = today.getDay();
-  const daysUntilMonday = (currentDay + 6) % 7;
-
-  const startDate = new Date(today);
-  startDate.setDate(today.getDate() - daysUntilMonday);
-
-  const weekDates = [];
-  for (let i = 0; i < 7; i++) {
-    const date = new Date(startDate);
-    date.setDate(startDate.getDate() + i);
-    weekDates.push(formatDate(date));
-  }
-
-  return weekDates;
-}
+const today = new Date();
+// 2023-08-20T00:38:16.095Z
+const currentDay = today.getDay();
+// 6
+const daysFromMonday = 1 -currentDay;
+// -5
 ```
 
+In order to offset the date we need to use the setDate() method that changes the day of the month. We can use that with our daysFromMonday int to get the start of the week and then iterate through a for loop to fill the the rest.
+
 ```javascript
-function formatDate(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
+const startDate = new Date(today);
+// 2023-08-20T00:38:16.095Z
+startDate.setDate(today.getDate() + daysFromMonday);
+// 2023-08-15T00:38:16.095Z
+const weekDates = [];
+for (let i = 0; i < 7; i++) {
+  const date = new Date(startDate);
+  date.setDate(startDate.getDate() + i);
+  weekDates.push(date);
 }
+// [
+//   2023-08-15T00:42:17.355Z,
+//   2023-08-16T00:42:17.355Z,
+//   2023-08-17T00:42:17.355Z,
+//   2023-08-18T00:42:17.355Z,
+//   2023-08-19T00:42:17.355Z,
+//   2023-08-20T00:42:17.355Z,
+//   2023-08-21T00:42:17.355Z
+// ]
+```
+
+The last step was creating a more human readable format of the date. We can use date's methods to extract the year, month and day and format them with a template placeholder. Note that getMonth is zero indexed. We use javascript String's [padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) method so we can always have 2 digits for the month and the day for values < 10.
+
+```javascript
+const year = date.getFullYear();
+// 2023
+const month = String(date.getMonth() + 1).padStart(2, '0');
+// '08'
+const day = String(date.getDate()).padStart(2, '0');
+// '20'
+return `${year}-${month}-${day}`;
+// '2023-08-20'
+```
+
+And one final touch is to turn the day of the week into the names we are familiar with. We do that with a simple array index.
+
+```javascript
+const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const dayName = weekDays[date.getDay()];
+// 'Sunday'
 ```
 
 ## Conclusion
 
-There are a lot of gotchas to getting dates working correctly. I hope this guide can help you get started more quickly, as well as point you to further resources for handling more complex cases.
+There are a lot of "gotchas" to getting dates working correctly, especially when working across two languages with different behaviors for timezones and 0-indexing. I hope this guide can help you get started more quickly, as well as point you to further resources for handling more complex cases.
