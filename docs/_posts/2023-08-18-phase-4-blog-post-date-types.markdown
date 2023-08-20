@@ -70,23 +70,27 @@ The weekday() method returns the day of the week as in int with Monday == 0. Her
 
 ```python
 today = datetime.date.today()
+# datetime.date(2023, 8, 19)
 weekday = today.weekday()
+# 5
 monday = today + datetime.timedelta(-weekday)
+# datetime.date(2023, 8, 14)
 ```
 
 I also needed to take dates that were posted to my API from the React app. Since I'm deserializing the JSON into a Python object I needed a way to convert the date string into a datetime.date() object. There isn't a method on the date class but the datetime class has one called strptime(). And it's easy to convert that to a date object with date().
 
-The format codes are based on a 1989 C standard format codes, you can [see a list here](https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en). Just make sure you are consistent with what the React frontend is sending.
+The format codes are based on a 1989 C standard format codes, you can [see a list here](https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en). Just make sure you are consistent with what the React frontend is sending. Also notice we had to do `datetime.datetime`.
 
 ```python
 data = request.get_json()
 print(data['date'])
-# '2023-08-18'
-date = datetime.strptime(data['date'], '%Y-%m-%d').date()
+# '2023-08-19'
+date = datetime.datetime.strptime(data['date'], '%Y-%m-%d').date()
+# datetime.date(2023, 8, 19)
 meal_plan = MealPlan(date=date)
 ```
 
-Those are the basics for using date in Python, but there is a lot more to learn depending on your use cases.
+Those are the basics for using datetime.date in Python, but there is a lot more to learn depending on your use cases.
 
 ## Date type in React / Javascript
 
@@ -98,7 +102,7 @@ I needed to do several things on the frontend with dates, so let's break it down
 2. Create an array of all seven days in this week starting on Monday
 3. Convert those dates to something human readable
 
-To figure out the first day of the week we take a similar approach as we did in Python by using a method to get the day of the week, in this case [getDay()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay) with Sunday == 0.
+To figure out the first day of the week we take a similar approach as we did in Python by using a method to get the day of the week, in this case [getDay()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay) with Sunday == 0 (notice the 0-indexed day is different than in Python).
 
 ```javascript
 const today = new Date();
@@ -133,7 +137,7 @@ for (let i = 0; i < 7; i++) {
 // ]
 ```
 
-The last step was creating a more human readable format of the date. We can use date's methods to extract the year, month and day and format them with a template placeholder. Note that getMonth is zero indexed. We use javascript String's [padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) method so we can always have 2 digits for the month and the day for values < 10.
+The last step was creating a more human readable format of the date. We can use date's methods to extract the year, month and day and format them with a template placeholder. Note that getMonth is zero indexed. We use javascript String's [padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) method so we can always have 2 digits for the month and the day for values < 10.
 
 ```javascript
 const year = date.getFullYear();
