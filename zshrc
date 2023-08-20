@@ -8,7 +8,7 @@ zs(){
   source ~/.zshrc
   echo 'Updated ~/.zshrc'
   current_dir=${PWD} #Get current directory
-  cd ~/code/github-rendely/rendely.github.io
+  cd ~/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git diff zshrc
   git add zshrc
@@ -19,7 +19,7 @@ zs(){
 zsb(){
 #Backup zshrc quickly
   current_dir=${PWD} #Get current directory
-  cd ~/code/github-rendely/rendely.github.io
+  cd ~/github-rendely/rendely.github.io
   cat ~/.zshrc > zshrc
   git add zshrc
   git commit -m "Auto update zshrc: $*"
@@ -120,7 +120,7 @@ wifi(){
 
 chat(){
 #Run chat-GPT in CLI
-cd ~/Code/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py  
+cd ~/github-rendely/chat-gpt-app && pipenv run python chat-gpt.py  
 }
 
 tojpeg(){
