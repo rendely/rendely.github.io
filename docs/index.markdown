@@ -9,9 +9,13 @@ layout: default
 
 Welcome to my site. Check out my portfolio projects below, and my [blog posts](/blog.html).
 
-![memoji](/assets/img/memoji.png)  
+![memoji](/assets/img/me.png)  
+
+<br>
 
 ---
+
+<br>
 
 ## Meal Planner web app
 
@@ -23,9 +27,16 @@ Plan your meal schedule for the week, manage meal ideas and ingredients
 - Secured stored login credentials using Bcrypt. Managed database with Alembic and SQLAlchemy
 - Deployed project to render.com, integrated with Github for auto re-deploy on commit
 
+<br>
+
+_Screenshot of Meal Planner app_
 ![screenshot of meal planner app](/assets/img/mealplan2.jpg)  
 
+<br>
+
 ---
+
+<br>
 
 ## “Trippy” Trip Planner CLI
 
@@ -36,9 +47,16 @@ A CLI to help users keep track of trips. Users can create trips and associate th
 - Leveraged Click Python package to create scalable CLI app
 - Created rigorous set of tests with Pytest to catch and fix edge cases
 
+<br>
+
+_Screenshot of CLI app_
 ![screenshot of CLI app](/assets/img/trippy.jpg)  
 
+<br>
+
 ---
+
+<br>
 
 ## Study Card web app
 
@@ -49,4 +67,7 @@ Easily create a set of flashcards for any topic, and then use them to practice a
 - Learned and utilized Semantic UI library to improve usability and accelerate development
 - Implemented complex user interactions with state and custom designed logic for spaced repetition
 
+<br>
+
+_Screenshot of Study Card app
 ![screenshot of study card app](/assets/img/review.jpg)
