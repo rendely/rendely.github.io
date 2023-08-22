@@ -7,7 +7,7 @@ layout: default
 
 # Matthew Rendely's Software Development Portfolio
 
-Welcome to my site. Check out my portfolio projects below as well as my [blog posts](/blog.html). And here's a cute photo of my dog, Mango:
+Welcome to my site. Check out my portfolio projects below, and my [blog posts](/blog.html). And here's a cute photo of my dog, Mango:
 
 ![photo of cute dog](/assets/img/mango.jpeg)  
 
