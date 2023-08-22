@@ -69,5 +69,5 @@ Easily create a set of flashcards for any topic, and then use them to practice a
 
 <br>
 
-_Screenshot of Study Card app
+_Screenshot of Study Card app_
 ![screenshot of study card app](/assets/img/review.jpg)
