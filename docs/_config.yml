@@ -4,7 +4,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Home
+title: Matthew Rendely
+author: Matthew Rendely
 email: 
 # description: >- # this means to ignore newlines until "baseurl:"
   # My website
@@ -14,6 +15,7 @@ github_username:  rendely
 header_pages:
   - index.markdown
   - blog.markdown
+show_excerpts: true  
 
 # Build settings
 theme: minima
