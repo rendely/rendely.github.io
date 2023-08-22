@@ -7,9 +7,12 @@ layout: default
 
 # Matthew Rendely's Software Development Portfolio
 
-Welcome to my site. Check out my portfolio projects below, and my [blog posts](/blog.html). And here's a cute photo of my dog, Mango:
+Welcome to my site. Check out my portfolio projects below, and my [blog posts](/blog.html).
 
-![photo of cute dog](/assets/img/mango.jpeg)  
+![memoji](/assets/img/memoji.PNG)  
+
+</br>
+</br>
 
 ## Meal Planner web app
 
