@@ -11,8 +11,7 @@ Welcome to my site. Check out my portfolio projects below, and my [blog posts](/
 
 ![memoji](/assets/img/memoji.PNG)  
 
-</br>
-</br>
+---
 
 ## Meal Planner web app
 
@@ -26,6 +25,8 @@ Plan your meal schedule for the week, manage meal ideas and ingredients
 
 ![screenshot of meal planner app](/assets/img/mealplan2.jpg)  
 
+---
+
 ## “Trippy” Trip Planner CLI
 
 Links: [Github](https://github.com/rendely/phase-3-project-CLI) • [Demo](https://drive.google.com/file/d/11v7OKbxJZMvt151y_dU_cj0s9Q4r23wV/view?usp=drive_link)
@@ -36,6 +37,8 @@ A CLI to help users keep track of trips. Users can create trips and associate th
 - Created rigorous set of tests with Pytest to catch and fix edge cases
 
 ![screenshot of CLI app](/assets/img/trippy.jpg)  
+
+---
 
 ## Study Card web app
 
