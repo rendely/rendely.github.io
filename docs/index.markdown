@@ -9,7 +9,7 @@ layout: default
 
 Welcome to my site. Check out my portfolio projects below, and my [blog posts](/blog.html).
 
-![memoji](/assets/img/memoji.PNG)  
+![memoji](/assets/img/memoji.png)  
 
 ---
 
