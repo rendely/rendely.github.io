@@ -2,9 +2,6 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: default
+title: Blog
+layout: home
 ---
-
-# Matt Rendely - Portfolio
-
-Welcome to my site. Check out the [blog](/blog.html)
