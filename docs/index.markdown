@@ -9,7 +9,7 @@ layout: default
 
 Welcome to my site. Check out my portfolio projects below as well as my [blog posts](/blog.html). And here's a cute photo of my dog, Mango:
 
-![photo of cute dog](/assets/img/mango.jpeg)
+![photo of cute dog](/assets/img/mango.jpeg)  
 
 ## Meal Planner web app
 
@@ -21,7 +21,7 @@ Plan your meal schedule for the week, manage meal ideas and ingredients
 - Secured stored login credentials using Bcrypt. Managed database with Alembic and SQLAlchemy
 - Deployed project to render.com, integrated with Github for auto re-deploy on commit
 
-![screenshot of meal planner app](/assets/img/mealplan2.jpg)
+![screenshot of meal planner app](/assets/img/mealplan2.jpg)  
 
 ## “Trippy” Trip Planner CLI
 
@@ -31,6 +31,8 @@ A CLI to help users keep track of trips. Users can create trips and associate th
 
 - Leveraged Click Python package to create scalable CLI app
 - Created rigorous set of tests with Pytest to catch and fix edge cases
+
+![screenshot of CLI app](/assets/img/trippy.jpg)  
 
 ## Study Card web app
 
