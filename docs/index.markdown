@@ -25,6 +25,7 @@ Plan your meal schedule for the week, manage meal ideas and ingredients
 
 - Implemented full stack application using React + UI libraries, Flask and Postgresql
 - Secured stored login credentials using Bcrypt. Managed database with Alembic and SQLAlchemy
+- Wrote comprehensive set of tests with Pytest for API routes
 - Deployed project to render.com, integrated with Github for auto re-deploy on commit
 
 <br>

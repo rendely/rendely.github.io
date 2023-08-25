@@ -15,7 +15,7 @@ github_username:  rendely
 header_pages:
   - index.markdown
   - blog.markdown
-show_excerpts: true  
+show_excerpts: True
 
 # Build settings
 theme: minima
