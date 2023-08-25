@@ -5,9 +5,7 @@ date:   2023-04-01 18:47:10 -0700
 categories: flatiron
 ---
 
-## Overview
-
-In this blog post we'll start by walking through the very basics of how to sort Arrays in Javascript and what to watch out for. We'll then build on those fundamentals to handle several of the most common scenarios you'll face. These scenarios include sorting alphabetically, sorting numerically, sorting objects and, lastly, custom sorting rules. 
+In this blog post we'll start by walking through the very basics of how to sort Arrays in Javascript and what to watch out for. <!--more-->We'll then build on those fundamentals to handle several of the most common scenarios you'll face. These scenarios include sorting alphabetically, sorting numerically, sorting objects and, lastly, custom sorting rules. 
 
 ## Array sorting basics
 

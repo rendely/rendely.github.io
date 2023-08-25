@@ -5,9 +5,7 @@ date:   2023-04-28 18:47:10 -0700
 categories: flatiron
 ---
 
-## Overview
-
-In this blog post we'll go over some of my learnings from my first React project that could be helpful for beginners. These are practical examples of the types of challenges needed to build a functioning app.
+In this blog post we'll go over some of my learnings from my first React project that could be helpful for beginners.  <!--more-->These are practical examples of the types of challenges needed to build a functioning app.
 
 ## About my first React Project
 

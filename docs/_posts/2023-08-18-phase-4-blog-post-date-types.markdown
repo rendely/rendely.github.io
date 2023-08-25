@@ -5,9 +5,7 @@ date:   2023-08-18 18:47:10 -0700
 categories: flatiron
 ---
 
-## Overview
-
-My fourth project in the Flatiron course was a [meal planning app](https://github.com/rendely/phase-4-project-meal-planner). I needed a way to let users plan meals for specific dates, which required figuring out how the Date type would work in 3 distinct areas of my code: (1) my database via SQLAlchemy, (2) my flask backend, and (3) my React frontend.
+My fourth project in the Flatiron course was a [meal planning app](https://github.com/rendely/phase-4-project-meal-planner). I needed a way to let users plan meals for specific dates, which required figuring out how the Date type would work in 3 distinct areas of my code <!--more-->: (1) my database via SQLAlchemy, (2) my flask backend, and (3) my React frontend.
 
 In this blog post I'll explain how the Date type is used across the entire stack and some helpful methods I learned along the way.
 

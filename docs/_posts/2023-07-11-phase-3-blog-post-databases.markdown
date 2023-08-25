@@ -5,9 +5,7 @@ date:   2023-07-11 18:47:10 -0700
 categories: flatiron
 ---
 
-## Overview
-
-As a beginner programmer, I recently built my first [command line tool](https://github.com/rendely/phase-3-project-CLI) in Python using SQLAlchemy and Alembic. In this post I'll share some additiona research I did to learn more about these technologies.
+As a beginner programmer, I recently built my first [command line tool](https://github.com/rendely/phase-3-project-CLI) in Python using SQLAlchemy and Alembic. <!--more--> In this post I'll share some additiona research I did to learn more about these technologies.
 
 ## Python
 
