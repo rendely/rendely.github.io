@@ -1,3 +1,5 @@
+PROMPT="> "
+
 z(){
 #Open zshrc quickly
   code ~/.zshrc
