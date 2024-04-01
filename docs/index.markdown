@@ -17,6 +17,28 @@ Welcome to my site. Check out my portfolio projects below, and my [blog posts](/
 
 <br>
 
+## Pawdcasts - podcast player
+
+Links: [Github](https://github.com/rendely/phase-5-project-pawdcasts) • [Demo](https://drive.google.com/file/d/1_MZigeIys1_PtRZBthNCfl9uzU3Ea1EK/view?usp=drive_link)
+
+Web app for following and playing your favorite podcasts
+
+- Integrated with Itunes API to retrieve latest podcast data
+- Implemented Media Session API to integrate with native audio players and support playback interactions 
+- Added caching on backend to reduce loading times
+- Hosted on Github with Postgres
+
+<br>
+
+_Screenshot of Pawdcasts app_
+![screenshot of meal planner app](/assets/img/pawdcast.jpg)  
+
+<br>
+
+---
+
+<br>
+
 ## Meal Planner web app
 
 Links: [Github](https://github.com/rendely/phase-4-project-meal-planner) • [Demo](https://drive.google.com/file/d/1KIZSK_AzfKFFY7z5FAfPDKd50sAqoml1/view?usp=drive_link)
