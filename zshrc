@@ -70,12 +70,19 @@ component(){
     return
   fi
 
-  if [ -e "$component.js" ]; then  # Check if the file exists
+  if [ -e "$component" ]; then  # Check if the folder exists
+    echo "$component already exists."  # If it does, print a message saying so
+  else
+    mkdir "$component"  # If it doesn't, create the folder
+  fi
+
+  if [ -e "$component/$component.js" ]; then  # Check if the file exists
     echo "$component.js already exists."  # If it does, print a message saying so
   else
-    touch "$component.js"  # If it doesn't, create the file
-    cat <<END_TEXT > "$component.js"  # Add the text to the file
-import React from 'react'
+    touch "$component/$component.js"  # If it doesn't, create the file
+    cat <<END_TEXT > "$component/$component.js"  # Add the text to the file
+import React from 'react';
+import '$component.css';
 
 function $component(){
   return ()
@@ -84,9 +91,20 @@ function $component(){
 export default $component
 
 END_TEXT
-    echo "Created $component.js and copied import statement to clipboard"
-    echo "import $component from './$component';" | pbcopy
-    code -r "$component.js"
+fi
+
+if [ -e "$component/$component.css" ]; then  # Check if the file exists
+    echo "$component.css already exists."  # If it does, print a message saying so
+  else
+    touch "$component/$component.css"  # If it doesn't, create the file
+    cat <<END_TEXT > "$component/$component.css"  # Add the text to the file
+.$component{
+
+}
+END_TEXT
+    echo "Created $component files and copied import statement to clipboard"
+    echo "import $component from './components/$component/$component';" | pbcopy
+    code -r "$component/$component.js" "$component/$component.css"
   fi
 }
 
