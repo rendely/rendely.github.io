@@ -81,7 +81,6 @@ component(){
   else
     touch "$component/$component.js"  # If it doesn't, create the file
     cat <<END_TEXT > "$component/$component.js"  # Add the text to the file
-import React from 'react';
 import './$component.css';
 
 function $component(){
