@@ -82,10 +82,13 @@ component(){
     touch "$component/$component.js"  # If it doesn't, create the file
     cat <<END_TEXT > "$component/$component.js"  # Add the text to the file
 import React from 'react';
-import '$component.css';
+import './$component.css';
 
 function $component(){
-  return ()
+  return (
+    <div class='$component'>
+    </div>
+  )
 }
 
 export default $component
