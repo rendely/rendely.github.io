@@ -85,7 +85,7 @@ import './$component.css';
 
 function $component(){
   return (
-    <div class='$component'>
+    <div className='$component'>
     </div>
   )
 }
