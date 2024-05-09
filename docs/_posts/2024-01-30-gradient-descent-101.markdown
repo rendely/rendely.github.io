@@ -23,7 +23,20 @@ Imagine a single neuron: you input the size of a house, and it outputs the price
 
 ## What is gradient descent?
 
-"Gradient" has a more specific mathematical definition, but for our purposes we'll define it as the rate of change. If we go ba
+Continuing the example of a single neuron that predicts the price of a house based on its size: how do we teach the neuron what the "exchange rate" is between the two? E.g. if the formula is price = Y x square feet, how do we figure out what "Y", our exchange rate is?
+
+This is where gradient descent comes in. We start with a random number for Y, and then use our training data to teach the AI what the exchange rate is.
+
+Let's pretend our training data looks like this:
+| House | Price | Square Feet |
+| ----- | ----- | ----------- |
+| 1 | $200k | 1000 sq ft |
+| 2 | $400k | 2000 sq ft |
+| 3 | $800k | 4000 sq ft |
+
+And let's start our value of Y at 100
+
+"Gradient" has a more specific mathematical definition, but for our purposes we'll define it as the rate of change. In the case of machine learning 
 
 ## Basic neural "network" in Python
 
