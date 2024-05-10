@@ -144,7 +144,7 @@ for _ in range(50):
 
 And here is an animation showing how the "neuron" is trained step by step to make better predictions:
 
-![alt text](../assets/img/sgd_line.gif)
+![alt text](/assets/img/sgd_line.gif)
 
 The red line shows the predicted output for all values of x. Each time the line moves we are showing how the back propagation step adjusted the weights to be more accurate.
 
