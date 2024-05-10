@@ -15,9 +15,9 @@ If you really simplify down what AI is -- it's identifying patterns and making p
 
 ## What is a neural network?
 
-So how does AI make predictions? One example of how it's build is with a neural network.
+So how does AI make predictions? One example of how it's built is with a neural network.
 
-The name "neural network" is inspired by the structure of the human brain. Each neuron takes an input and produces an output. If you connect enough of these neurons together in more complex structures you get more sophisticated intelligence out of it.
+The name "neural network" is inspired by the structure of the human brain. Each neuron takes an input and produces an output (in reality multiple inputs and multiple outputs). If you connect enough of these neurons together in more complex structures you get more sophisticated intelligence out of it.
 
 Imagine a single neuron: you input the size of a house, and it outputs the price. You can then make it smarter by adding more neurons, which let you input things like the location, the number of bedrooms, etc. And as you add more neurons and connect them in the right way, this system starts to act more like a human brain and make more accurate predictions of the price of a home given multiple factors.
 
@@ -28,6 +28,7 @@ Continuing the example of a single neuron that predicts the price of a house bas
 This is where gradient descent comes in. It's the process of minimizing the error of our prediction. Let's work through an example:
 
 Let's pretend our training data looks like this:
+
 | House | Price | Square Feet |
 | ----- | ----- | ----------- |
 | 1 | $200k | 1000 sq ft |
@@ -52,11 +53,9 @@ We use a bit of calculus to figure out how much to change Y based on the size of
 
 Let's re-write our formula as `P = Y*S`
 
-To get the gradient we take the derivative d/dY which is equal to S (the square footage).
+To get the gradient we take the derivative d/dY which is equal to S (the square footage). So we'll backward propagate the loss * S.
 
-And because we want to slowly move towards the right value without stepping past it, we have a step size which is a fraction like 0.01 that we multiply by that gradient.
-
-Revisiting our example above. With Y = 100, our gradient was 1000 and so we take a step of 1000 * 0.01 = 10. Changing Y to 110. And we'd keep taking these steps until we can no longer make the error smaller.
+And because we want to slowly move towards the right value without stepping past it, we have a step size which is a small fraction.
 
 ## Basic neural "network" in Python
 

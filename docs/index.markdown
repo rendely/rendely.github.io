@@ -31,7 +31,7 @@ Web app for following and playing your favorite podcasts
 <br>
 
 _Screenshot of Pawdcasts app_
-![screenshot of meal planner app](/assets/img/pawdcast.jpg)  
+![screenshot of meal planner app](/assets/img/pawdcast.jpg) 
 
 <br>
 
