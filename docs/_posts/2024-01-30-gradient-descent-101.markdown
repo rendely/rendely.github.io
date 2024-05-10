@@ -48,15 +48,23 @@ We are descending down the gradient of the size of the error until we minimize i
 
 In the housing example just now we very arbitrarily picked how much to change our Y variable to try and find the minimum loss. But the magic of gradient descent is we can do this in a reliable and scalable way mathematically, so no eyeballing and guessing is needed.
 
-We use a bit of calculus to figure out how much to change Y based on the size of the error.
+Each training loop is divided into a "forward" pass, and a "backward" pass. In the forward pass we just calculate the predicted output (in this case the house price) and see how far off we are. In the backward pass we take that loss and figure out how much to adjust our weights, in this case "Y".
 
-`d(Price) / d(Y) = square feet
+We use a bit of calculus to figure out how much to change Y based on the size of the error. This is called back propagation. And to figure out how much error to back propagate we look at the gradient of how the price varies with respect to changes in Y.
 
+Let's re-write our formula as `P = Y*S`
 
+To get the gradient we take the derivative d/dY which is equal to S (the square footage).
+
+And because we want to slowly move towards the right value without stepping past it, we have a step size which is a fraction like 0.01 that we multiply by that gradient.
+
+Revisiting our example above. With Y = 100, our gradient was 1000 and so we take a step of 1000 * 0.01 = 10. Changing Y to 110. And we'd keep taking these steps until we can no longer make the error smaller.
 
 ## Basic neural "network" in Python
 
-Our neuron is going to be a very simple linear formula, just like in the example of estimating the housing price `y = m * x + b`
+That was somewhat complicated to follow as a written example, let's see if this Python code example makes it easier to understand.
+
+Our neuron is going to be a very simple linear formula, very similar to the example of estimating the housing price, but we're adding a constant "b": `y = m * x + b`
 
 We'll initialize our neuron's weights ("exchange rates") randomly:
 
@@ -65,7 +73,7 @@ m = random.random()
 b = random.random()
 ```
 
-And create some training data:
+And create some fake training data:
 
 ```python
 x = [-4, -2, 0,1,2,3]
@@ -137,6 +145,15 @@ for _ in range(50):
     y_pred = [xi * m + b for xi in x]
 ```
 
-## Recap & recommended reading
+And here is an animation showing how the "neuron" is trained step by step to make better predictions:
 
+![alt text](../assets/img/sgd_line.gif)
 
+The red line shows the predicted output for all values of x. Each time the line moves we are showing how the back propagation step adjusted the weights to be more accurate.
+
+## Recap & recommended content
+
+Hopefully this article helped you learn at a very basic level what is going on under the hood with AI. You are now familiar with the terms: neural network, gradient descent, forward propagation, back propagation, loss, weights and a few others.
+
+Once again, this is oversimplified to the point of being borderline inaccurate. But I hope it helps build some intuition. To continue learning, I highly recommend starting with Andrej Karpathy's video series: [The spelled-out intro to neural networks and backpropagation: building micrograd
+](https://www.youtube.com/watch?v=VMj-3S1tku0)
