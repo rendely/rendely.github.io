@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "Summarize Podcasts with local LLMs"
+date:   2024-03-15 00:00:00 -0700
+categories: AI
+---
+
+In this project, I aimed to prototype a service that would automatically email summaries of podcast episodes for those like myself that aren't always sure which ones are worth a full listen.
+
+Further, I wanted to see how good local LLMs could handle the two steps of (1) transcribing and (2) summarizing the podcast audio.
+
+## Overview
+
+The [prototype](https://github.com/rendely/podcast-newsletter) I built did several steps. It first downloaded the podcast audio file, then transcribed it with Whisper, then summarized it with Mistral (or another LLM), and finally emailed the summary.
+
+Here's a snippet from `main.py` showing all the steps:
+
+```python
+example_url = '<podcast URL>'
+d = Downloader(url=example_url)
+t = Transcriber(file_name = d.file_name)
+s = Summarizer(transcript=t.transcript, service='mistral', file_name=t.file_name)
+s.summarize()
+m = Mail(file_name=t.file_name)
+m.send()
+```
+
+## Transcribing with Whisper
+
+For the transcription, I used [whisper.cpp](https://github.com/ggerganov/whisper.cpp) which is a high performance implementation of OpenAI's Whisper model.
+
+Setup is straightforward following the documentation linked above, then running Whisper was done via the subprocess module.
+
+By using the tiny, english only version `ggml-tiny.en.bin` I was able to to transcribe hour long podcasts in only a couple of minutes.
+
+## Summarizing with Mistral through Ollama
+
+For summarization, I used [Ollama](https://ollama.com/), which sets up a local server running many open source LLMs. I chose to use [Mistral 7b](https://ollama.com/library/mistral) as it was the most capable model that could run well enough on my M1 Macbook Air.
+
+I also experimented with other LLMs via their APIs to see if more powerful models produced better summaries.
+
+There is definitely room to further optimize by playing around with different size passages and prompting. I ended up doing a two pass summarization: first I took the raw transcript, split it up into multiple chunks and summarized each chunk. Then I did a final summarization over all those summarized chunks.
+
+## Conclusion
+
+Even with just an M1 Macbook Air, it's very easy to run local models to transcribe and summarize audio. And because many users are likely listening to the same popular podcasts this service seems fairly easy to cheaply scale up.
+
+However, I expect companies like Apple and Google who already have control over podcast distribution would likely fill this user need.
+
+There may be an interesting opportunity to curate information and knowledge from podcasts by indexing the transcript data.
