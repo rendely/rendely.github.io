@@ -182,3 +182,7 @@ if which pyenv > /dev/null; then
      eval "$(pyenv init - )";
      export PIPENV_VENV_IN_PROJECT=1
 fi
+. "$HOME/.local/bin/env"
+
+#UV env variables
+export UV_ENV_FILE=".env"
